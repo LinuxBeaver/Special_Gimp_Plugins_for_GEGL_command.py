@@ -122,7 +122,7 @@ static void attach (GeglOperation *operation)
                                   NULL);
 
   gegl_node_link_many (input, graph, blur, graph2, hue, saturation, multiply, opacityall, fix, output, NULL);
-  gegl_node_connect_from (multiply, "aux", layer, "output");
+  gegl_node_connect (multiply, "aux", layer, "output");
 
 
   gegl_operation_meta_redirect (operation, "gaus", blur, "std-dev-x");
