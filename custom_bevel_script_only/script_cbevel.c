@@ -238,32 +238,32 @@ switch (o->switchbevel) {
     case CLASSIC:
   gegl_node_link_many (state->input,  state->darkbevel, state->nop, state->mcol, state->median, state->box, state->gaussian, usethis, state->opacity, state->mcb, state->sharpen, state->desat, state->multiply2,  state->lightness, state->killpuff, state->repairgeglgraph, state->output,  NULL);
 /* Blend emboss with one of many blend modes*/
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->gaussian, state->emboss,  NULL);
 /* Blend color overlay with multiply*/
-  gegl_node_connect_from (state->mcol, "aux", state->col, "output");
+  gegl_node_connect (state->mcol, "aux", state->col, "output");
   gegl_node_link_many (state->nop, state->col,  NULL);
 /* Blend multiply with image file overlay*/
-  gegl_node_connect_from (state->multiply2, "aux", state->imagefileoverlay, "output");
+  gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
         break;
     case NO_COLOR_MODERN:
   gegl_node_link_many (state->input, state->bookmark,  state->white, state->multiplybookmark, state->darkbevel, state->median, state->box, state->gaussian, usethis, state->opacity, state->mcb, state->sharpen, state->desat, state->multiply2,  state->lightness,  state->repairgeglgraph, state->killpuff2, state->output,  NULL);
 /* Blend emboss with one of many blend modes*/
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->gaussian, state->emboss,  NULL);
 /* Blend multiply with image file overlay*/
-  gegl_node_connect_from (state->multiply2, "aux", state->imagefileoverlay, "output");
+  gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
 /* Blend multiply with original image color*/
-  gegl_node_connect_from (state->multiplybookmark, "aux", state->medianbookmark, "output");
+  gegl_node_connect (state->multiplybookmark, "aux", state->medianbookmark, "output");
   gegl_node_link_many (state->bookmark, state->medianbookmark,  NULL);
         break;
     case COLOR_MODERN:
   gegl_node_link_many (state->input, state->col,  state->darkbevel, state->median, state->box, state->gaussian, usethis, state->opacity, state->mcb, state->sharpen, state->desat, state->multiply2,  state->lightness, state->repairgeglgraph, state->killpuff2,  state->output,  NULL);
 /* Blend emboss with one of many blend modes*/
-  gegl_node_connect_from (usethis, "aux", state->emboss, "output");
+  gegl_node_connect (usethis, "aux", state->emboss, "output");
   gegl_node_link_many (state->gaussian, state->emboss,  NULL);
 /* Blend multiply with image file overlay*/
-  gegl_node_connect_from (state->multiply2, "aux", state->imagefileoverlay, "output");
+  gegl_node_connect (state->multiply2, "aux", state->imagefileoverlay, "output");
 }
  }
 
